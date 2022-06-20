@@ -16,19 +16,16 @@ const answers = {
 let score = 0;
 let questionNumber = 1;
 
-let play = (userInput) => {
-    let input = userInput.toString().trim();
-    game(input);
-  };
-
 let game = (input) => {
+  input = input.toString().trim();
+
   if (input === "q") {
     process.stdout.write(`Thanks!`);
     process.exit();
   } else {
     if (questionNumber === 5) {
-        process.stdout.write(`Thanks for playing!`);
-        process.exit();
+      process.stdout.write(`Thanks for playing!`);
+      process.exit();
     }
     process.stdout.write(`${questions[questionNumber]} > `);
     if (input === answers[questionNumber]) {
@@ -44,4 +41,4 @@ process.stdout.write(
   "Welcome to the Harry Potter Pet quiz! \nIf you want to play, press p. If not, press q.\n"
 );
 
-process.stdin.on("data", play);
+process.stdin.on("data", game);
